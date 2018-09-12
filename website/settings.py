@@ -31,12 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin',					# 管理员站点
+    'django.contrib.auth',					# 认证授权系统
+    'django.contrib.contenttypes',			# 内容类型框架
+    'django.contrib.sessions',				# 会话框架
+    'django.contrib.messages',				# 消息框架
+    'django.contrib.staticfiles',			# 管理静态文件的框架
+    'user',									# 添加的项目应用
 ]
 
 MIDDLEWARE = [
@@ -75,8 +76,13 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.sqlite3',			# 选择的数据库sqlite3/postgresql/mysql/oracle
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),   # 数据库名称/如果是sqlite3，则为数据库文件地址
+        # 如果使用sqlite3，则无需下面4项
+        'USER': 'root',									# 用户名
+        'PASSWORD': '123',								# 密码
+        'HOST': '',										# 主机名，如果数据库服务器和应用程序在同一台机器上，则留空''
+        'PORT': '',										# 使用默认端口，则留空''
     }
 }
 
@@ -103,9 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
